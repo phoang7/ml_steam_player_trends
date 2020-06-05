@@ -14,4 +14,7 @@ This can be done but either installing through `pip` or an virutal environment (
 To view the graphs that are saved in `steam.py`, go to the `graphs` directory so you can the graphs there or download it by cloning (as mentioned in the 1st paragraph).
 
 If you do not know how to use git or install libaries, some resources are provided below for help:
-[Git clone](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone#:~:text=git%20clone%20is%20a%20Git,copy%20of%20the%20target%20repository.&text=Cloning%20a%20local%20or%20remote,options%20to%20partially%20clone%20repositories)
+* [Git clone](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone#:~:text=git%20clone%20is%20a%20Git,copy%20of%20the%20target%20repository.&text=Cloning%20a%20local%20or%20remote,options%20to%20partially%20clone%20repositories)
+* [Connecting to GitHub with SSH](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh)
+* [Installing libraries with pip](https://packaging.python.org/tutorials/installing-packages/#use-pip-for-installing)
+* [Getting started with conda](https://docs.conda.io/projects/conda/en/latest/user-guide/getting-started.html#before-you-start)
