@@ -32,9 +32,12 @@ def predictor(game_file, game_data):
     title = "Predicting # Of Concurrent Players for {}"
     plt.title(title.format(game_file[:-4]))
     plt.legend((ac, pred), ('Actual Values', 'Predicted Values'))
+    plt.xlabel("Months Since Release Data")
+    plt.ylabel("Number of Average Players")
     plt.savefig('graphs/' + game_file[:-4] + '.png')
     plt.clf()
-    print("Random Regressor Tree Score:", r2_score(labels_test, prediction))
+    score = r2_score(labels_test, prediction)
+    return 'The R Squared Score for {} is {}'.format(game_file[:-4], score)
 
 
 def dead_or_not(game_file, game_data):
@@ -68,12 +71,14 @@ def dead_or_not(game_file, game_data):
     title = "Predicting # of Concurrent Players In The Future for {}"
     plt.title(title.format(game_file[:-4]))
     plt.legend((pst, ftr), ('Past Data', 'Expected Future Data'))
+    plt.xlabel("Months Since Release Data")
+    plt.ylabel("Number of Average Players")
     plt.savefig('graphs/' + game_file[:-4] + '.png')
     plt.clf()
     future_months = 1
     for x in prediction:
         if x < death_level:
-            return 'In {} months, {} playerbase will be considered' \
+            return 'In {} month(s), the {} player base will be considered' \
                 ' dead'.format(future_months, game_file[:-4])
         else:
             future_months += 1
@@ -105,7 +110,7 @@ def average_predictor(game_file, game_data):
     avg_next_6 = np.mean(next_6['Avg. Players'])
     if average_f6 < avg_next_6:
         return "This game, {}, is increasing in popularity (average)"\
-            " by {}%".format(game_file[:-4], (avg_next_6/average_f6)-1)
+            " by {}%".format(game_file[:-4], ((avg_next_6/average_f6)-1) * 100)
     else:
         return "This game, {}, appears not to be increasing"\
             " in popularity (average)".format(game_file[:-4])
@@ -144,6 +149,8 @@ def linear_predictor(game_file, game_data):
     plt.title(title.format(game_file[:-4]))
     plt.legend((pst, expect, act), ('First 6 Months', 'Expected Next 6',
                                     'Actual Next 6'))
+    plt.xlabel("Months Since Release Data")
+    plt.ylabel("Number of Average Players")
     plt.savefig('graphs/' + game_file[:-4] + '.png')
     plt.clf()
     average_fy = np.mean(actual_fy['Avg. Players'])
@@ -167,10 +174,10 @@ def part1(data):
     sims = 'sims.csv'
     csgo = 'csgo.csv'
     dsiii = 'dsiii.csv'
-    predictor(nba20, data[nba20])
-    predictor(sims, data[sims])
-    predictor(csgo, data[csgo])
-    predictor(dsiii, data[dsiii])
+    print(predictor(nba20, data[nba20]))
+    print(predictor(sims, data[sims]))
+    print(predictor(csgo, data[csgo]))
+    print(predictor(dsiii, data[dsiii]))
 
 
 def part2(data):
@@ -211,15 +218,9 @@ def part3(data):
 
 def main():
     data = clean.load_directory_data('data')
-    # part1(data)
-    # part2(data)
+    part1(data)
+    part2(data)
     part3(data)
-    '''
-    predictor(csgo, data[csgo])
-    print(dead_or_not(csgo, data[csgo]))
-    print(average_predictor(csgo, data[csgo]))
-    print(linear_predictor(csgo, data[csgo]))
-    '''
 
 
 if __name__ == '__main__':
