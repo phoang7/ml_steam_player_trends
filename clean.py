@@ -4,6 +4,7 @@ import os
 # Note: We use macbooks and hate .DS_Store so we want to ignore if it pops up
 ignore = '.DS_Store'
 
+
 def load_game_data(game_file):
     '''
     Takes a game path as data and returns the data
@@ -16,6 +17,7 @@ def load_game_data(game_file):
     df = df[['Month', 'Avg. Players']]
     return df
 
+
 def load_directory_data(dir_name):
     '''
     Takes a directory path and returns a dictionary
@@ -26,12 +28,11 @@ def load_directory_data(dir_name):
     game_data = {}
     if ignore in files:
         files.remove(ignore)
-    
+
     for file in files:
         game_data[file] = load_game_data(dir_name + '/' + file)
 
     return game_data
-
 
 
 def main():
