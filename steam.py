@@ -155,7 +155,7 @@ def linear_predictor(game_file, game_data):
     plt.clf()
     average_fy = np.mean(actual_fy['Avg. Players'])
     average_predicted = np.mean(prediction)
-    percentage = (average_predicted/average_fy)-1
+    percentage = ((average_predicted/average_fy)-1)*100
     if average_fy < average_predicted:
         return "This game, {}, is increasing in popularity"\
             " by {}% (linear)".format(game_file[:-4], percentage)
