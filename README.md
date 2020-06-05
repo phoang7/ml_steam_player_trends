@@ -8,3 +8,4 @@ When you run `steam.py`, you will need a few libaries installed. You will need t
 To view the graphs that are saved in `steam.py`, go to the `graphs` directory so you can the graphs there or download it by cloning (as mentioned in the 1st paragraph).
 
 If you do not know how to use git or install libaries, some resources are provided below for help:
+[Git clone](https://www.atlassian.com/git/tutorials/setting-up-a-repository/git-clone#:~:text=git%20clone%20is%20a%20Git,copy%20of%20the%20target%20repository.&text=Cloning%20a%20local%20or%20remote,options%20to%20partially%20clone%20repositories)
